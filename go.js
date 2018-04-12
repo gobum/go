@@ -1,5 +1,3 @@
-module.exports = go.default = go;
-
 function go(any) {
   return go.generator.isPrototypeOf(any)
     ? Promise.resolve().then(next)

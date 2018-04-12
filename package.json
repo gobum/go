@@ -4,7 +4,17 @@
   "description": "asynchronous driver for generator",
   "license": "MIT",
   "repository": "https://github.com/gobum/go",
+  "files": [
+    "index.js",
+    "all.js",
+    "go.js"
+  ],
   "scripts": {
-    "test": "cd test && node index.js gen.js"
+    "test": "npm run build && beg test.js",
+    "build": "echo 'module.exports = go.default = go;\n' > index.js && cat go.js >> index.js",
+    "pub": "npm run build && npm publish --access public"
+  },
+  "devDependencies": {
+    "@gobum/beg": "^0.0.1"
   }
 }
