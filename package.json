@@ -1,6 +1,6 @@
 {
   "name": "@gobum/go",
-  "version": "0.0.1",
+  "version": "0.0.2",
   "description": "asynchronous driver for generator",
   "license": "MIT",
   "repository": "https://github.com/gobum/go",
@@ -10,11 +10,11 @@
     "go.js"
   ],
   "scripts": {
-    "test": "npm run build && beg test.js",
-    "build": "echo 'module.exports = go.default = go;\n' > index.js && cat go.js >> index.js",
+    "test": "npm run build && it test.js",
+    "build": "cat go.js > index.js && echo '\nmodule.exports = go.default = go;' >> index.js",
     "pub": "npm run build && npm publish --access public"
   },
   "devDependencies": {
-    "@gobum/beg": "^0.0.1"
+    "@gobum/it": "^0.0.1"
   }
 }

@@ -1,2 +1,5 @@
 # go
-asynchronous driver for generator
+go is an asynchronous driver for generator.
+
+## why go ?
+
