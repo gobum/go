@@ -253,3 +253,28 @@ it("go.race generators", function(){
     it(value === "inner").ok;
   });
 });
+
+it("go async generator - generator - generator", function () {
+  async function* main(from) {
+    it(from === "go").ok;
+    var value = yield first("main");
+    return "main-" + value;
+  }
+
+  function* first(from) {
+    it(from === "main").ok;
+    var value = yield last("first");
+    return "first-" + value;
+  }
+
+  function* last(from) {
+    it(from === "first").ok;
+    var value = yield it.delay(10, "last");
+    return value;
+  }
+
+  return go(main("go")).then(function (value) {
+    it(value === "main-first-last").ok;
+  });
+});
+

@@ -15,6 +15,6 @@
     "pub": "npm run build && npm publish --access public"
   },
   "devDependencies": {
-    "@gobum/it": "^0.0.1"
+    "@gobum/it": "0.0.2"
   }
 }
